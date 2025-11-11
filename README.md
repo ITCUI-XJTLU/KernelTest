@@ -6,8 +6,6 @@
 
 **High-performance R package for detecting differential histone enrichment in ChIP-seq data using kernel-based nonparametric tests.**
 
-> **⚠️ Quick Fix**: If you encounter `Error: unused argument (plot = TRUE)`, see [Troubleshooting Installation](#troubleshooting-installation) or [SOLUTION_SUMMARY.md](SOLUTION_SUMMARY.md).
-
 ## Overview
 
 `KernelTest` accepts paired design matrices containing ChIP-seq read counts or normalized intensities for genes under case and control conditions. For each gene, columns represent genomic bins ordered along the locus. The package implements kernel smoothing procedures (Gaussian kernel with Nadaraya-Watson estimator) to estimate smoothed enrichment profiles and conduct hypothesis tests for differential binding.
@@ -34,7 +32,7 @@
 
 ```r
 # install.packages("devtools")
-devtools::install_github("tfcui2025/KernelTest")
+devtools::install_github("ITCUI-XJTLU/KernelTest")
 ```
 
 ### Install from source / Development version
@@ -54,16 +52,6 @@ devtools::load_all()
 # Or install locally
 devtools::install()
 ```
-
-### Troubleshooting Installation
-
-If you encounter `unused argument (plot = TRUE)` error:
-
-1. Make sure `R/Functions_old.R` is renamed to `.bak` (old versions should not be loaded)
-2. Regenerate documentation: `devtools::document()`
-3. Reload the package: `devtools::load_all()`
-
-See [SOLUTION_SUMMARY.md](SOLUTION_SUMMARY.md) for detailed troubleshooting.
 
 ## Quick Start
 
@@ -178,8 +166,6 @@ The package uses Rcpp/C++ for computational efficiency:
 
 ### Quick References
 - **[FINAL_DEMO.R](FINAL_DEMO.R)**: Complete workflow demonstration with visualization
-- **[HOW_TO_USE.md](HOW_TO_USE.md)**: Detailed usage guide (中文)
-- **[SOLUTION_SUMMARY.md](SOLUTION_SUMMARY.md)**: Troubleshooting guide (中文)
 - **[CHANGELOG.md](CHANGELOG.md)**: Version history and updates
 
 ### Technical Documentation
@@ -207,15 +193,6 @@ The package implements:
 2. **Kernel smoothing**: Nadaraya-Watson estimator with Gaussian kernel
 3. **Variance estimation**: Three methods (equal, unequal, kernel-smoothed)
 4. **Test statistics**: Wilson-Hilferty transformation for approximate normality
-
-## Citation
-
-If you use KernelTest in your research, please cite:
-
-```
-Cui, T. (2025). KernelTest: Kernel-Based Tests for Differential Histone
-Enrichment in ChIP-seq. R package version 0.0.0.9000.
-```
 
 ## Visualization Features
 
@@ -251,25 +228,6 @@ results <- TS_twosample(
 # ✓ Detailed statistics for each plotted gene
 ```
 
-## Recent Updates
-
-### Version 0.0.0.9000 (Current)
-
-**New Features:**
-- ✅ Built-in visualization with `plot = TRUE` parameter
-- ✅ P-value calculation and significance testing (`alpha` parameter)
-- ✅ Custom gene names and condition labels
-- ✅ Detailed gene-level plots with `plot_genes` parameter
-- ✅ Comprehensive statistical summaries in console output
-
-**Performance Improvements:**
-- ✅ Complete Rcpp/C++ implementation (5-10x faster)
-- ✅ Optimized hat matrix computation
-- ✅ Vectorized variance estimation for all genes
-
-**Bug Fixes:**
-- ✅ Resolved function loading conflicts (removed duplicate definitions)
-- ✅ Fixed eigenvalue symmetry warnings in C++ code
 
 ## Future Development
 
