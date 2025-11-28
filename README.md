@@ -34,7 +34,16 @@ devtools::install_github("ITCUI-XJTLU/KernelTest")
 The `TS_twosample` function now includes **built-in visualization**:
 
 ```r
-# Run test with automatic plotting
+library(KernelTest)
+
+# Load example data (5 genes × 280 bins)
+data(data1)  # Condition 1 (case)
+data(data4)  # Condition 2 (control)
+
+# Step 1: Estimate bias term from stable genes
+tao <- est.c(data1, data4, max1 = 5, max4 = 5)
+
+# Step 2: Run test with automatic plotting
 results <- TS_twosample(
   data1 = data1,
   data4 = data4,
