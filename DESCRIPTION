@@ -1,0 +1,23 @@
+Package: KernelTest
+Title: Kernel-Based Tests for Differential Histone Enrichment in ChIP-seq
+Version: 0.0.0.9000
+Authors@R: 
+    person("Tengfei", "Cui", , "tfcui2025@tamu.edu", role = c("aut", "cre"))
+Description: Tools for detecting differential histone enrichment between case
+    and control groups from ChIP-seq profiles. Methods rely on kernel-based
+    smoothing and nonparametric statistics to identify differential binding
+    regions without restrictive parametric assumptions.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports:
+    stats,
+    graphics,
+    Rcpp (>= 1.0.0)
+LinkingTo: Rcpp, RcppArmadillo
+Depends:
+    R (>= 3.5)
